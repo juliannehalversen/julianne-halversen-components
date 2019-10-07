@@ -1,36 +1,41 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+<div id="app">
+    <app-header></app-header>
+    <v-container>
+        <v-row>
+            <v-col>
+            <app-servers></app-servers>
+            </v-col>
+            <v-col
+            <app-server-details></app-server-details>
+            </v-col>
+        </v-row>
+    </v-container>
+        <app-footer></app-footer>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+    import Header from './components/Header.vue';
+    import Footer from './components/Footer.vue';
+    import Servers from './components/Servers.vue';
+    import ServerDetails from './components/ServerDetails.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
-  data: () => ({
-    //
-  }),
-};
+    export default {
+        components: {
+            'app-header': Header,
+            'app-servers': Servers,
+            'app-server-details': ServerDetails,
+            'app-footer': Footer
+        }
+    }
 </script>
+
+<style>
+#app {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+</style>
